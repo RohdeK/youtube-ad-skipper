@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "author": "Konstantin Rohde",
+  "name": "Youtube Ad Video Skipper",
+  "description": "Youtube Ad Video Skipping",
+  "version": "1.0",
+  "content_scripts": [
+      {
+        "matches": ["*://www.youtube.com/*"],
+        "js": ["skipper.js"]
+      }
+    ]
+}
