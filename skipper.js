@@ -16,14 +16,19 @@
     checkValidVideoUrl(video);
   }
 
+  function isVisible(elem) {
+    if (!elem) return false;
+    return !!(elem.offsetWidth && elem.offsetHeight && elem.getClientRects().length);
+  }
+
   function checkValidVideoUrl(element) {
     var src = element.getAttribute("src");
-    console.log("Got new Video Source: ", src);
-
     if (!src) return;
 
-    var adThings = document.getElementsByClassName('video-ads')[0];
-    if ((adThings !== undefined && adThings.children[0] !== undefined && adThings.children[0].children[0] !== undefined) || src.indexOf('youtube') == -1) {
+    console.log("Got new Video Source: ", src);
+
+    var adThings = document.getElementsByClassName('ad-container')[0];
+    if (isVisible(adThings) || src.indexOf('youtube') == -1) {
       setTimeout(function() {
         element.setAttribute('src', '');
         console.log("Video Skipped.");
